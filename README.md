@@ -24,6 +24,12 @@ A modern Next.js frontend application for uploading and analyzing gait videos wi
 # Install dependencies
 npm install
 
+# Copy environment variables template
+cp .env.local.example .env.local
+
+# (Optional) Edit .env.local to configure API URL
+# NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+
 # Run the development server
 npm run dev
 ```
