@@ -59,8 +59,8 @@ export default function Home() {
       formData.append("file", file);
 
       const extractResponse = await fetch(
-        // "https://vorma-backend-extractor.onrender.com/api/analyze",
-        "http://127.0.0.1:8000/api/analyze",
+        "https://vorma-backend-extractor.onrender.com/api/analyze",
+        // "http://127.0.0.1:8000/api/analyze",
         {
           method: "POST",
           body: formData,
@@ -82,8 +82,8 @@ export default function Home() {
       setLoadingMessage("Generating orthotic prescription...");
 
       const predictResponse = await fetch(
-        // "https://vorma-backend-predictor.onrender.com/api/predict",
-        "http://127.0.0.1:8001/api/predict",
+        "https://vorma-backend-predictor.onrender.com/api/predict",
+        // "http://127.0.0.1:8001/api/predict",
         {
           method: "POST",
           headers: {
@@ -185,7 +185,7 @@ export default function Home() {
           {/* Footer Info */}
           <div className="mt-8 text-center">
             <p className="text-xs text-muted-foreground">
-              Powered by advanced machine learning algorithms for precise biomechanical analysis
+              Powered by machine learning for biomechanical analysis
             </p>
           </div>
         </div>
