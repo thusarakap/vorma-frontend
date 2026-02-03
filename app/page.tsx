@@ -58,7 +58,8 @@ export default function Home() {
       const formData = new FormData();
       formData.append("file", file);
 
-      const extractResponse = await fetch(
+      // Start the fetch request immediately
+      const extractPromise = fetch(
         "https://vorma-backend-extractor.onrender.com/api/analyze",
         // "http://127.0.0.1:8000/api/analyze",
         {
@@ -67,12 +68,19 @@ export default function Home() {
         }
       );
 
+      // Wait for 5 seconds purely for UX/Animation
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      
+      // Update state to extracting (50%)
+      setAnalysisState("extracting");
+      setLoadingMessage("Analyzing gait patterns...");
+
+      // Now await the actual response
+      const extractResponse = await extractPromise;
+
       if (!extractResponse.ok) {
         throw new Error(`Feature extraction failed: ${extractResponse.statusText}`);
       }
-
-      setAnalysisState("extracting");
-      setLoadingMessage("Analyzing gait patterns...");
 
       const extractData = await extractResponse.json();
       console.log("Extraction result:", extractData);
@@ -162,7 +170,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-88px)] px-4 py-8">
         <div className="w-full max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Section - Video Upload */}
             <div className="w-full">
               <VideoUploadCard
