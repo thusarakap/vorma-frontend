@@ -113,10 +113,12 @@ export default function AnalysisResultCard({
                   style={{
                     width:
                       state === "uploading"
-                        ? "33%"
+                        ? "25%"
                         : state === "extracting"
-                        ? "66%"
-                        : "99%",
+                        ? "50%"
+                        : state === "predicting"
+                        ? "75%"
+                        : "100%",
                   }}
                 />
               </div>
