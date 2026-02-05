@@ -93,9 +93,7 @@ export default function FootHeatmap({ loads }: FootHeatmapProps) {
       ctx.fillText(`${(load * 100).toFixed(1)}%`, width * 0.5, textY);
     };
 
-    /* -------------------------------
-      Forefoot
-    -------------------------------- */
+     // Forefoot
     drawZone(
       () => {
         ctx.beginPath();
@@ -114,9 +112,8 @@ export default function FootHeatmap({ loads }: FootHeatmapProps) {
       height * 0.15
     );
 
-    /* -------------------------------
-      Midfoot
-    -------------------------------- */
+    
+     // Midfoot
     drawZone(
       () => {
         ctx.beginPath();
@@ -133,9 +130,7 @@ export default function FootHeatmap({ loads }: FootHeatmapProps) {
       height * 0.50
     );
 
-    /* -------------------------------
-      Rearfoot
-    -------------------------------- */
+     // Rearfoot
     drawZone(
       () => {
         ctx.beginPath();
@@ -154,9 +149,8 @@ export default function FootHeatmap({ loads }: FootHeatmapProps) {
       height * 0.85
     );
 
-    /* -------------------------------
-      Labels
-    -------------------------------- */
+
+    //  Labels
     ctx.fillStyle = "#22d3ee";
     ctx.font = "12px monospace";
     ctx.textAlign = "left";
@@ -165,7 +159,6 @@ export default function FootHeatmap({ loads }: FootHeatmapProps) {
     ctx.fillText("Rearfoot", width * 0.85, height * 0.85);
 
   }, [loads]);
-
 
   return (
     <div className="relative w-full aspect-[2/3] max-w-sm mx-auto">
